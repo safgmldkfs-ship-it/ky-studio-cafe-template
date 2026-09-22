@@ -9,6 +9,8 @@ export const shop = {
 
   phone: "04-0000-0000",
 
+  email: "hello@twilight-cafe.demo",
+
   address: "台中市西區暮光路 100 號",
 
   mapQuery: "台中市西區",
