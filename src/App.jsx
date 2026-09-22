@@ -145,33 +145,46 @@ function App() {
           </div>
         </section>
 
-        {/* 菜單 */}
-        <section className="menuSection" id="menu">
-          <div className="menuInner">
-            <div className="sectionHeading lightHeading">
-              <p>OUR MENU</p>
-              <h2>精選菜單</h2>
-            </div>
+       {/* 菜單 */}
+<section className="menuSection" id="menu">
+  <div className="menuInner">
+    <div className="sectionHeading lightHeading">
+      <p>OUR MENU</p>
+      <h2>精選菜單</h2>
+    </div>
 
-            <div className="menuGrid">
-              {shop.menu.map((item) => (
-                <article className="menuItem" key={item.id}>
-                  <div>
-                    <span className="menuCategory">{item.category}</span>
-                    <h3>{item.name}</h3>
-                    <p>{item.englishName}</p>
-                  </div>
+    <div className="menuFilters">
+      {categories.map((category) => (
+        <button
+          key={category}
+          type="button"
+          className={activeCategory === category ? "active" : ""}
+          onClick={() => setActiveCategory(category)}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
 
-                  <strong>NT$ {item.price}</strong>
-                </article>
-              ))}
-            </div>
-
-            <p className="menuNote">
-              MENU · 部分商品依現場供應狀況調整
-            </p>
+    <div className="menuGrid">
+      {filteredMenu.map((item) => (
+        <article className="menuItem" key={item.id}>
+          <div>
+            <span className="menuCategory">{item.category}</span>
+            <h3>{item.name}</h3>
+            <p>{item.englishName}</p>
           </div>
-        </section>
+
+          <strong>NT$ {item.price}</strong>
+        </article>
+      ))}
+    </div>
+
+    <p className="menuNote">
+      MENU · 部分商品依現場供應狀況調整
+    </p>
+  </div>
+</section>
 
         {/* 品牌展示區 */}
         <section className="experience">
